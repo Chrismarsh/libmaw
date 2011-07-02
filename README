@@ -1,0 +1,2 @@
+libmaw -- Matlab API Wrapper
+This wraps the Matlab API in an easy to use way for use from C++
