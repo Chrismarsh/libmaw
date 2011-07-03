@@ -1,2 +1,13 @@
 libmaw -- Matlab API Wrapper
-This wraps the Matlab API in an easy to use way for use from C++
+This wraps the Matlab API in an easy to use way for use from C++.
+
+Dependencies:
+Boost
+Amarmadillo
+A full Matlab install
+
+OS:
+Windows only because of a filepath API call. The rest is platform independent.
+
+Compiler:
+Only tested with VS2010
