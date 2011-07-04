@@ -86,6 +86,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|X64'">
     <IntDir>$(SolutionDir)..\tmp\$(Platform)\$(Configuration)\</IntDir>
     <TargetName>$(Platform)_$(ProjectName)</TargetName>
+    <IncludePath>C:\Program Files %28x86%29\boost\boost_1_46_0;C:\Program Files\MATLAB\R2011a\extern\include;$(SolutionDir)\..\libs\armadillo-1.2.0\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files\MATLAB\R2011a\extern\lib\win64\microsoft;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
