@@ -29,10 +29,8 @@
 
 #pragma once
 
-#include <engine.h>
-#include <iostream>
-// #include <direct.h> // for getcwd
-// #include <stdlib.h>// for MAX_PATH
+
+
 
 #include <stdio.h>  // for FILENAME_MAX 
 #ifdef WIN32
@@ -43,10 +41,11 @@
 	#define GetCurrentDir getcwd
 #endif
 
-
+#include <engine.h>
+#include <iostream>
 #include <string>
 #include <armadillo>
-
+#include <exception>
 #include <boost/lexical_cast.hpp>
 
 
