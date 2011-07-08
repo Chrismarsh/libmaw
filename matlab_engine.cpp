@@ -32,7 +32,7 @@ void matlab_engine::start()
 {
 	if (!(m_engine = engOpen("\0"))) 
 	{
-		throw std::exception("Can't start MATLAB engine");
+		throw std::runtime_error("Can't start MATLAB engine");
 	}
 }
 
@@ -41,7 +41,7 @@ void matlab_engine::stop()
 	if(m_engine)
 	{
 		if (engEvalString(m_engine, "close") == 1)
-			throw std::exception(get_last_error().c_str());
+			throw std::runtime_error(get_last_error().c_str());
 	}
 	m_engine = NULL;
 }
@@ -55,11 +55,11 @@ void matlab_engine::evaluate( std::string command )
 
 		std::string err = get_last_error().c_str();
 		if (err != "")
-			throw std::exception( (std::string(__FILE__) + std::string(":") + boost::lexical_cast<std::string,int>(__LINE__) + std::string(":") + get_last_error() + std::string("\nCommand: ") + command).c_str());
+			throw std::runtime_error( (std::string(__FILE__) + std::string(":") + boost::lexical_cast<std::string,int>(__LINE__) + std::string(":") + get_last_error() + std::string("\nCommand: ") + command).c_str());
 	}
 	else
 	{
-		throw std::exception("No MATLAB engine open");
+		throw std::runtime_error("No MATLAB engine open");
 	}
 }
 
@@ -68,11 +68,11 @@ void matlab_engine::put( std::string name, mxArray* var )
 	if(m_engine)
 	{
 		if( engPutVariable(m_engine, name.c_str(), var) == 1)
-			throw std::exception(get_last_error().c_str());
+			throw std::runtime_error(get_last_error().c_str());
 	}
 	else
 	{
-		throw std::exception("No MATLAB engine open");
+		throw std::runtime_error("No MATLAB engine open");
 	}
 }
 
@@ -83,14 +83,14 @@ mxArray* matlab_engine::get( std::string name )
 		{
 			mxArray* temp = engGetVariable(m_engine, name.c_str());
 			if (!temp)
-				throw std::exception(get_last_error().c_str());
+				throw std::runtime_error(get_last_error().c_str());
 			else
 				return temp;
 
 		}
 		else
 		{
-			throw std::exception("No MATLAB engine open");
+			throw std::runtime_error("No MATLAB engine open");
 		}
 }
 
@@ -113,11 +113,11 @@ void matlab_engine::set_working_dir( std::string dir )
 	if(m_engine)
 	{
 		if (engEvalString(m_engine, (std::string("cd '")+dir+std::string("'")).c_str())==1)
-			throw std::exception(get_last_error().c_str());
+			throw std::runtime_error(get_last_error().c_str());
 	}
 	else
 	{
-		throw std::exception("No MATLAB engine open");
+		throw std::runtime_error("No MATLAB engine open");
 	}
 }
 
