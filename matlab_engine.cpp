@@ -124,7 +124,7 @@ void matlab_engine::set_working_dir( std::string dir )
 void matlab_engine::set_working_dir()
 {
 	char path[_MAX_PATH];
-	_getcwd(path, _MAX_PATH);
+	GetCurrentDir(path, _MAX_PATH);
 
 	set_working_dir(std::string(path));
 
