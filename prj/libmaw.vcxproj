@@ -76,7 +76,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|X64'">
     <LibraryPath>C:\Program Files %28x86%29\boost\boost_1_46_0\lib64;C:\Program Files\MATLAB\R2011a\extern\lib\win64\microsoft;$(LibraryPath)</LibraryPath>
-    <OutDir>$(SolutionDir)..\lib\</OutDir>
+    <OutDir>$(SolutionDir)..\lib\$(Platform)</OutDir>
     <TargetName>$(Platform)_$(ProjectName)_d</TargetName>
     <IntDir>$(SolutionDir)..\tmp\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
@@ -109,6 +109,8 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ProgramDataBaseFileName>$(SolutionDir)..\lib\$(Platform)_$(ProjectName)_d</ProgramDataBaseFileName>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -144,6 +146,8 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ProgramDataBaseFileName>$(SolutionDir)..\lib\$(Platform)_$(ProjectName)</ProgramDataBaseFileName>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
