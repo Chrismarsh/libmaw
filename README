@@ -7,7 +7,7 @@ Amarmadillo
 A full Matlab install
 
 OS:
-Windows only because of a filepath API call. The rest is platform independent.
+Windows and Linux tested
 
 Compiler:
-Only tested with VS2010
+VS2010, Intel C++
