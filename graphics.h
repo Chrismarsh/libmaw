@@ -33,6 +33,10 @@
 #include <boost/lexical_cast.hpp>
 #include "matlab_engine.h"
 
+namespace maw
+{
+
+
 class graphics
 {
 public:
@@ -61,3 +65,5 @@ private:
 	matlab_engine* m_engine;
 	
 };
+
+}

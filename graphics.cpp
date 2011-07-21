@@ -29,6 +29,10 @@
 
 #include "graphics.h"
 
+namespace maw
+{
+
+
 //returns the handle from matlab
 //vertices should be in the form [x(:) y(:) z(:)]
 //faces should be in the form  tri.Triangulation
@@ -141,4 +145,6 @@ void graphics::colorbar( std::string toggle/*="on"*/ )
 		m_engine->evaluate("colorbar");
 	else
 		m_engine->evaluate("colorbar('off')");
+}
+
 }

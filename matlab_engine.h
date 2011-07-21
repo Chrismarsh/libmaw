@@ -48,6 +48,9 @@
 #include <exception>
 #include <boost/lexical_cast.hpp>
 
+namespace maw
+{
+
 
 
 class matlab_engine
@@ -89,3 +92,5 @@ private:
 	Engine *m_engine;
 
 }; 
+
+}

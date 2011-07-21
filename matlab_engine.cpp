@@ -28,6 +28,11 @@
 
 
 #include "matlab_engine.h"
+
+namespace maw
+{
+
+
 void matlab_engine::start()
 {
 	if (!(m_engine = engOpen("\0"))) 
@@ -225,3 +230,4 @@ void matlab_engine::put_double_vector( std::string name, const arma::vec* vec )
 	mxDestroyArray(mx);
 }
 
+}
