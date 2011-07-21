@@ -51,43 +51,198 @@
 namespace maw
 {
 
-
-
 class matlab_engine
 {
 public:
+
+	/*
+	Method: matlab_engine
+		Creates a new Matlab engine instance. Should never create more than one
+	Parameters: 
+	Returns:   
+		 - 
+	Throws: 
+	
+	*/
 	matlab_engine();
+
+
+	/*
+	Method: ~matlab_engine
+		Shuts down the matlab engine instance if <stop> has not been called yet
+	Parameters: 
+	Returns:   
+		 - 
+	Throws: 
+	
+	*/
 	~matlab_engine();
 
 	
-	
+	/*
+	Method: evaluate
+		Takes the string command and evaluates it directly in the Matlab engine.
+	Parameters: 
+		std::string command - Command 
+	Returns:   
+		void
+	Throws: 
+		Runtime exception on error
+	*/
 	void evaluate(std::string command);
 
+	/*
+	Method: put
+		Copies a mxArray type into the Matlab engine with a specified name
+	Parameters: 
+		std::string name - Name of the matrix in the Matlab engine
+		mxArray * var - Array to put
+	Returns:   
+		void - 
+	Throws: 
+		runtime_error on failure
+	
+	*/
 	void put(std::string name, mxArray* var );
-	void put_double_matrix(std::string name, const arma::mat* mat);//copies an existing array to matlab with the specified name
+
+
+	/*
+	Method: put_double_matrix
+		Puts an Armadillo type matrix into the engine
+	Parameters: 
+		std::string name - Name of the matrix in the Matlab engine
+		const arma::mat * mat - Armadillo matrix instance to copy
+	Returns:   
+		void - 
+	Throws: 
+		runtime_error on failure
+	*/
+	void put_double_matrix(std::string name, const arma::mat* mat);
+
+	/*
+	Method: put_double_vector
+		Put an Armadillo type vector into the engine
+	Parameters: 
+		std::string name - Name of the vector in the Matlab engine
+		const arma::vec * vec - Armadillo vector instance to copy
+	Returns:   
+		void - 
+	Throws: 
+		runtime_error on failure
+	*/
 	void put_double_vector(std::string name, const arma::vec* vec);
 
 	
+	/*
+	Method: get
+		Copy a matrix from the engine to a mxArray instance
+	Parameters: 
+		std::string name - Name of the matrix in the engine to copy
+	Returns:   
+		mxArray* - A copy of the data. Client is responsible for memory free.
+	Throws: 
+		runtime_error on failure
+	*/
 	mxArray* get(std::string name);
-	//only returns a m x n matrix
-	arma::mat* get_double_matrix( std::string name);//for the moment let the client handle the memory 
-	arma::vec* get_double_vector(std::string name);//for the moment let the client handle the memory 
+	
+	/*
+	Method: get_double_matrix
+		Copies a m x n matrix from the engine into an Armadillo matrix instance
+	Parameters: 
+		std::string name - Name of the matrix in the engine
+	Returns:   
+		arma::mat* - A copy of the data. Client is responsible for memory free.
+	Throws: 
+		runtime_error on failure
+	*/
+	arma::mat* get_double_matrix( std::string name);
+
+
+	/*
+	Method: get_double_vector
+		Copies a n x 1 vector from the engine into an Armadillo vector instance
+	Parameters: 
+		std::string name - Name of the vector in the engine
+	Returns:   
+		arma::vec* - A copy of the data. Client is responsible for memory free
+	Throws: 
+		runtime_error on failure
+	*/
+	arma::vec* get_double_vector(std::string name);
+
+
+	/*
+	Method: get_scaler
+		Get an 1 x 1 matrix from Matlab and convert it to a scaler.
+	Parameters: 
+		std::string name - Name of the scalar in the engine
+	Returns:   
+		double - A copy of the data
+	Throws: 
+		runtime_error on failure
+	*/
 	double get_scaler(std::string name);
 
-	//set working directory for matlab engine to a specified directory
+	
+	/*
+	Method: set_working_dir
+		Set the working directory of the engine to a specified directory
+	Parameters: 
+		std::string dir - Fully qualified or relative path to change directory to
+	Returns:   
+		void - 
+	Throws: 
+		runtime_error on failure
+	*/
 	void set_working_dir(std::string dir);
 
-	//set working directory for matlab engine to the current applications working directory
+	
+	/*
+	Method: set_working_dir
+		Set working directory for the engine to the current application's runtime directory
+	Parameters: 
+	Returns:   
+		void - 
+	Throws: 
+		
+	*/
 	void set_working_dir(); 
 
+	/*
+	Method: get_last_error
+		Get the last reported error from the engine as a string
+	Parameters: 
+	Returns:   
+		std::string - The error as a string
+	Throws: 
+		
+	*/
 	std::string get_last_error();
 
+	/*
+	Method: start
+		Initialize a new matlab engine
+	Parameters: 
+	Returns:   
+		void - 
+	Throws: 
+		runtime_error on failures
+	*/
 	void start();
 
+
+	/*
+	Method: stop
+		Closes a running matlab engine
+	Parameters: 
+	Returns:   
+		void - 
+	Throws: 
+		runtime_error on failure
+	*/
 	void stop();
 
 	
-
 private:
 	Engine *m_engine;
 
