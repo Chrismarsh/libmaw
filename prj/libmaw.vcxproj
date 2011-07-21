@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -19,13 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\graphics.h" />
-    <ClInclude Include="..\libmaw.h" />
-    <ClInclude Include="..\matlab_engine.h" />
+    <ClInclude Include="..\src\graphics.h" />
+    <ClInclude Include="..\src\libmaw.h" />
+    <ClInclude Include="..\src\matlab_engine.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\graphics.cpp" />
-    <ClCompile Include="..\matlab_engine.cpp" />
+    <ClCompile Include="..\src\graphics.cpp" />
+    <ClCompile Include="..\src\matlab_engine.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{E88C5DA5-B0CA-4FD7-BDD0-EB2F9E6E6015}</ProjectGuid>
