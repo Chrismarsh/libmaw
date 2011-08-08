@@ -29,9 +29,6 @@
 
 #pragma once
 
-
-
-
 #include <stdio.h>  // for FILENAME_MAX 
 #ifdef WIN32
 	#include <direct.h>
@@ -47,9 +44,13 @@
 #include <armadillo>
 #include <exception>
 #include <boost/lexical_cast.hpp>
+#include <boost/smart_ptr.hpp>
 
 namespace maw
 {
+	typedef boost::shared_ptr<arma::mat>  d_mat;
+	typedef boost::shared_ptr<arma::vec>  d_vec;
+	typedef boost::shared_ptr<double>     d_sca; //not currently used
 
 class matlab_engine
 {
@@ -117,7 +118,7 @@ public:
 	Throws: 
 		runtime_error on failure
 	*/
-	void put_double_matrix(std::string name, const arma::mat* mat);
+	void put_double_matrix(std::string name, const d_mat mat);
 
 	/*
 	Method: put_double_vector
@@ -130,7 +131,7 @@ public:
 	Throws: 
 		runtime_error on failure
 	*/
-	void put_double_vector(std::string name, const arma::vec* vec);
+	void put_double_vector(std::string name, const d_vec vec);
 
 	
 	/*
@@ -155,7 +156,7 @@ public:
 	Throws: 
 		runtime_error on failure
 	*/
-	arma::mat* get_double_matrix( std::string name);
+	d_mat get_double_matrix( std::string name);
 
 
 	/*
@@ -168,7 +169,7 @@ public:
 	Throws: 
 		runtime_error on failure
 	*/
-	arma::vec* get_double_vector(std::string name);
+	d_vec get_double_vector(std::string name);
 
 
 	/*

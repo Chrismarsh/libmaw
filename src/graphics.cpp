@@ -113,7 +113,7 @@ double graphics::plot_line( std::string x, std::string y, std::string options/*=
 	return ret;
 }
 
-double graphics::plot_line(const arma::vec* x, const arma::vec* y,std::string options/*=""*/ )
+double graphics::plot_line(const d_vec x, const d_vec y,std::string options/*=""*/ )
 {
 	m_engine->put_double_vector("x",x);
 	m_engine->put_double_vector("y",y);

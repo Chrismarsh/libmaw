@@ -47,7 +47,7 @@ public:
 	double plot_patch(std::string vertices, std::string faces, std::string face_data);
 	double update_patch(double handle, std::string vertices, std::string face_data);
 	
-	double plot_line(const arma::vec* x, const arma::vec* y, std::string options="");
+	double plot_line(const d_vec x, const d_vec y, std::string options="");
 	double plot_line(std::string x, std::string y, std::string options="");
 
 	void hold_on();

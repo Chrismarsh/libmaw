@@ -163,7 +163,7 @@ std::string matlab_engine::get_last_error()
 	}
 }
 
-void matlab_engine::put_double_matrix( std::string name, const arma::mat* mat )
+void matlab_engine::put_double_matrix( std::string name, const d_mat mat )
 {
 	mxArray*  mx = mxCreateDoubleMatrix(mat->n_rows, mat->n_cols, mxREAL);
 	memcpy(mxGetPr(mx),mat->memptr(),mat->n_elem*sizeof(double));
@@ -171,16 +171,16 @@ void matlab_engine::put_double_matrix( std::string name, const arma::mat* mat )
 	mxDestroyArray(mx);
 }
 
-arma::mat* matlab_engine::get_double_matrix( std::string name)
+d_mat matlab_engine::get_double_matrix( std::string name)
 {
 	mxArray* mx = get(name);
 
 	if(!mx)
 	{
-		return NULL;
+		d_mat(); //"null" ptr
 	}
 
-	arma::mat*  out_matrix = new arma::mat(mxGetM(mx),mxGetN(mx));
+	d_mat  out_matrix(new arma::mat(mxGetM(mx),mxGetN(mx)));
 
 	memcpy(out_matrix->memptr(),mxGetPr(mx),out_matrix->n_elem*sizeof(double));
 
@@ -190,19 +190,19 @@ arma::mat* matlab_engine::get_double_matrix( std::string name)
 
 }
 
-arma::vec* matlab_engine::get_double_vector( std::string name )
+d_vec matlab_engine::get_double_vector( std::string name )
 {
 	mxArray* mx = get(name);
 
 	if(!mx)
 	{
-		return NULL;
+		return d_vec(); //"null" ptr
 	}
 
 	size_t M = mxGetM(mx);
 	size_t N = mxGetN(mx);
 
-	arma::vec*  out_vec = new arma::vec(M);
+	d_vec  out_vec(new arma::vec(M));
 
 
 	memcpy(out_vec->memptr(),mxGetPr(mx),out_vec->n_elem*sizeof(double));
@@ -222,7 +222,7 @@ double matlab_engine::get_scaler( std::string name )
 	return 0.0;
 }
 
-void matlab_engine::put_double_vector( std::string name, const arma::vec* vec )
+void matlab_engine::put_double_vector( std::string name, const d_vec vec )
 {
 	mxArray*  mx = mxCreateDoubleMatrix(vec->n_rows, 1, mxREAL);
 	memcpy(mxGetPr(mx),vec->memptr(),vec->n_elem*sizeof(double));
