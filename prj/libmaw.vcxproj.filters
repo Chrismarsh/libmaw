@@ -11,21 +11,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\graphics.h">
+    <ClInclude Include="..\src\graphics.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\matlab_engine.h">
+    <ClInclude Include="..\src\libmaw.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\libmaw.h">
+    <ClInclude Include="..\src\matlab_engine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\graphics.cpp">
+    <ClCompile Include="..\src\graphics.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\matlab_engine.cpp">
+    <ClCompile Include="..\src\matlab_engine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

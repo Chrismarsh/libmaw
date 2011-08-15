@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -37,6 +37,7 @@
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>Intel Parallel Composer 2011</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|X64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
@@ -48,6 +49,7 @@
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>Intel Parallel Composer 2011</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|X64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
@@ -72,10 +74,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|X64'">
-    <IncludePath>C:\Program Files %28x86%29\boost\boost_1_46_0\;$(SolutionDir)\..\libs\armadillo-1.2.0\include;C:\Program Files\MATLAB\R2011a\extern\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Program Files\boost\boost_1_47_0\;$(SolutionDir)\..\libs\armadillo-1.2.0\include;C:\Program Files\MATLAB\R2011a\extern\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|X64'">
-    <LibraryPath>C:\Program Files %28x86%29\boost\boost_1_46_0\lib64;C:\Program Files\MATLAB\R2011a\extern\lib\win64\microsoft;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Program Files\MATLAB\R2011a\extern\lib\win64\microsoft;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)..\lib\</OutDir>
     <TargetName>$(Platform)_$(ProjectName)_d</TargetName>
     <IntDir>$(SolutionDir)..\tmp\$(Platform)\$(Configuration)\</IntDir>
@@ -86,7 +88,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|X64'">
     <IntDir>$(SolutionDir)..\tmp\$(Platform)\$(Configuration)\</IntDir>
     <TargetName>$(Platform)_$(ProjectName)</TargetName>
-    <IncludePath>C:\Program Files %28x86%29\boost\boost_1_46_0;C:\Program Files\MATLAB\R2011a\extern\include;$(SolutionDir)\..\libs\armadillo-1.2.0\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Program Files\boost\boost_1_47_0;C:\Program Files\MATLAB\R2011a\extern\include;$(SolutionDir)\..\libs\armadillo-1.2.0\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Program Files\MATLAB\R2011a\extern\lib\win64\microsoft;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
