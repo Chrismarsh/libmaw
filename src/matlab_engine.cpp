@@ -220,6 +220,8 @@ double matlab_engine::get_scaler( std::string name )
 		return *(mxGetPr(get(name)));
 	}
 	return 0.0;
+
+
 }
 
 void matlab_engine::put_double_vector( std::string name, const d_vec vec )
@@ -228,6 +230,19 @@ void matlab_engine::put_double_vector( std::string name, const d_vec vec )
 	memcpy(mxGetPr(mx),vec->memptr(),vec->n_elem*sizeof(double));
 	put(name,mx);
 	mxDestroyArray(mx);
+}
+
+void matlab_engine::add_dir_to_path( std::string dir )
+{
+	if(m_engine)
+	{
+		if (engEvalString(m_engine, (std::string("addpath('")+dir+std::string("')")).c_str())==1)
+			throw std::runtime_error(get_last_error().c_str());
+	}
+	else
+	{
+		throw std::runtime_error("No MATLAB engine open");
+	}
 }
 
 }

@@ -205,9 +205,21 @@ public:
 	Returns:   
 		void - 
 	Throws: 
-		
+		runtime_error on failure
 	*/
 	void set_working_dir(); 
+
+	/*
+	Method: add_dir_to_path
+		Adds the directory to the search path
+	Parameters: 
+		std::string dir - Full qualified or realtive pat to add to search path.
+	Returns:   
+		void - 
+	Throws: 
+		runtime_error on failure
+	*/
+	void add_dir_to_path(std::string dir);
 
 	/*
 	Method: get_last_error
