@@ -11,3 +11,7 @@ Windows and Linux tested
 
 Compiler:
 VS2010, Intel C++
+
+
+
+cmake looks for matlab in a strange place. Symlinking /opt/matlab-7sp1 to the actual root fixes it
